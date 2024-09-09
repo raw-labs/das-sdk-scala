@@ -85,9 +85,7 @@ lazy val testSettings = Seq(
     "-XX:+HeapDumpOnOutOfMemoryError",
     s"-XX:HeapDumpPath=${Paths.get(sys.env.getOrElse("SBT_FORK_OUTPUT_DIR", "target/test-results")).resolve("heap-dumps")}"
   ),
-  Test / publishArtifact := true,
-  // Exclude smoke tests by default.
-  Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-l", "raw.creds.client.SmokeTest")
+  Test / publishArtifact := true
 )
 
 val isCI = sys.env.getOrElse("CI", "false").toBoolean
