@@ -112,6 +112,6 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "com.raw-labs" %% "protocol-raw" % "0.39.0" % "compile->compile;test->test",
       "com.raw-labs" %% "utils-core" % "0.39.0" % "compile->compile;test->test",
-      "com.raw-labs" %% "protocol-das" % "0.1.0" % "compile->compile;test->test"
+      "com.raw-labs" %% "protocol-das" % "0.1.2" % "compile->compile;test->test"
     )
   )
