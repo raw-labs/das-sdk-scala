@@ -11,3 +11,14 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.0")
 addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.10.0")
 
 addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.12.0")
+
+credentials += Credentials(
+  "GitHub Package Registry",
+  "maven.pkg.github.com",
+  "raw-labs",
+  sys.env.getOrElse("GITHUB_TOKEN", "")
+)
+
+resolvers += "GitHub Packages" at "https://maven.pkg.github.com/raw-labs/sbt-versioner"
+
+addSbtPlugin("com.raw-labs" % "sbt-versioner" % "0.1.0")
