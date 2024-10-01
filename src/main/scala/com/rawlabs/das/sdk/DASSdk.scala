@@ -12,6 +12,7 @@
 
 package com.rawlabs.das.sdk
 
+import com.rawlabs.protocol.das.services.OperationsSupportedResponse
 import com.rawlabs.protocol.das.{FunctionDefinition, Qual, Row, SortKey, TableDefinition}
 import com.rawlabs.protocol.raw.Value
 import com.rawlabs.utils.core.RawException
@@ -24,6 +25,8 @@ final class DASSdkUnsupportedException() extends DASSdkException("unsupported op
 
 trait DASSdk {
 
+  def operationsSupported: OperationsSupportedResponse
+
   def tableDefinitions: Seq[TableDefinition]
 
   def functionDefinitions: Seq[FunctionDefinition]
@@ -31,6 +34,14 @@ trait DASSdk {
   def getTable(name: String): Option[DASTable]
 
   def getFunction(name: String): Option[DASFunction]
+
+  def sqlQuery(sql: String): DASExecuteResult = {
+    if (operationsSupported.getSqlSupported) {
+      throw new DASSdkUnsupportedException
+    } else {
+      throw new DASSdkException("SQL queries are not supported")
+    }
+  }
 
 }
 
