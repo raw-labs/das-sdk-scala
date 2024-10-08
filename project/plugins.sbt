@@ -19,6 +19,6 @@ credentials += Credentials(
   sys.env.getOrElse("GITHUB_TOKEN", "")
 )
 
-resolvers += "GitHub Packages" at "https://maven.pkg.github.com/raw-labs/sbt-versioner"
+resolvers += "RAW Labs GitHub Packages" at "https://maven.pkg.github.com/raw-labs/_"
 
 addSbtPlugin("com.raw-labs" % "sbt-versioner" % "0.1.0")
