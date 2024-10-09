@@ -103,7 +103,7 @@ lazy val root = (project in file("."))
     publishSettings,
     libraryDependencies ++= Seq(
       "com.raw-labs" %% "protocol-raw" % "0.50.0" % "compile->compile;test->test",
-      "com.raw-labs" %% "utils-core" % "0.39.1" % "compile->compile;test->test",
-      "com.raw-labs" %% "protocol-das" % "0.1.3" % "compile->compile;test->test"
+      "com.raw-labs" %% "utils-core" % "0.50.0" % "compile->compile;test->test",
+      "com.raw-labs" %% "protocol-das" % "0.1.4" % "compile->compile;test->test"
     )
   )
