@@ -36,11 +36,7 @@ trait DASSdk {
   def getFunction(name: String): Option[DASFunction]
 
   def sqlQuery(sql: String): DASExecuteResult = {
-    if (operationsSupported.getSqlSupported) {
-      throw new DASSdkUnsupportedException
-    } else {
-      throw new DASSdkException("SQL queries are not supported")
-    }
+    throw new DASSdkException("SQL queries are not supported")
   }
 
 }
